@@ -1,0 +1,2 @@
+# shopassistant
+ai shop assistant

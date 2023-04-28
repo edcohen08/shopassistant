@@ -15,7 +15,7 @@ if "past" not in st.session_state:
 
 
 def get_text():
-    input_text = st.text_input("Shop till you drop", key="input")
+    input_text = st.text_input("Shop till you drop", placeholder="just describe what you're looking for" key="input")
     return input_text
 
 

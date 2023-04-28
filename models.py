@@ -19,6 +19,7 @@ def load_pinecone():
     )
     return Pinecone.from_existing_index(index_name=os.environ["PINECONE_INDEX_NAME"], embedding=OpenAIEmbeddings())
 
+@st.cache_resource
 def load_chain():
     template = """You are a shopping assistant helping a person find clothing.
     Given the following extracted products from the catalog and a question, create a final answer

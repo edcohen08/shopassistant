@@ -3,7 +3,7 @@ import os
 import streamlit as st
 
 from langchain.chains.qa_with_sources import load_qa_with_sources_chain
-from langchain.llms import OpenAI
+from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferWindowMemory
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.prompts import PromptTemplate
@@ -34,7 +34,7 @@ def load_chain():
         template=template
     )
     memory = ConversationBufferWindowMemory(k=2, memory_key="chat_history", input_key="question")
-    llm = OpenAI(model_name="gpt-4", temperature=0)
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0)
     return load_qa_with_sources_chain(llm, verbose=True, chain_type="stuff", memory=memory, prompt=prompt)
 
 product_search = load_pinecone()

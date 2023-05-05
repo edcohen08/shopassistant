@@ -20,10 +20,8 @@ def load_pinecone():
     return Pinecone.from_existing_index(index_name=os.environ["PINECONE_INDEX_NAME"], embedding=OpenAIEmbeddings())
 
 def load_chain():
-    template = """You are a shopping assistant helping a person find clothing.
-    Given the following question and content summaries, if applicable, recommend up 
-    to two clothing items including your sources.
-
+    template = """You are a shopping assistant that helps people find the clothes they’re looking for.
+    Include urls in your responses.
     {chat_history}
     Shopper: {question}
     {summaries}

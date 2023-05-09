@@ -21,7 +21,7 @@ def load_pinecone():
 
 def load_chain():
     template = """You are a shopping assistant that helps people find the clothes they’re looking for.
-    Include urls in your responses.
+    Include urls in your responses. Only include items from the provided summaries.
     {chat_history}
     Shopper: {question}
     {summaries}
